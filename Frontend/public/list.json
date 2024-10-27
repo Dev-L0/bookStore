@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Story Book",
+    "title": "The Hunger Games",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mystery Novel",
+    "title": "Gone Girl",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Fantasy Novel",
+    "title": "Harry Potter",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Science Fiction",
+    "title": "Dune",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Historical Fiction",
+    "title": "The Book Thief",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Romance Novel",
+    "title": "Pride and Prejudice",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Thriller",
+    "title": "The Girl with the Dragon Tattoo",
+    "price": "00",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Biography",
+    "title": "Becoming",
+    "price": "20",
+    "category": "Paid",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Self-Help",
+    "title": "The Power of Habit",
+    "price": "20",
+    "category": "Paid",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Young Adult",
+    "title": "The Fault in Our Stars",
+    "price": "20",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Graphic Novel",
+    "title": "Maus",
+    "price": "20",
+    "category": "Free",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg"
+  }
+]
