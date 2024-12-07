@@ -1,6 +1,12 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom"
+import { useBookStore } from "../../store/bookStore";
 
-function Card({item}) {
+
+function Card({item}) { 
+  const navigate = useNavigate();
+  const handleDetails = () => {
+    navigate(`/book-details/${item._id}`);
+  };
   return (
    <>
    <div className='mt-20 my-3 p-3'>
@@ -17,7 +23,8 @@ function Card({item}) {
     <p>{item.title}</p>
     <div className="card-actions justify-between">
       <div className="badge badge-outline">${item.price}</div>
-      <div className="badge badge-outline hover:bg-slate-900  rounded-full p-3">Buy Now</div>
+      <div className="badge badge-outline hover:bg-slate-900  rounded-full p-3" onClick={handleDetails}>Details</div>
+
     </div>
   </div>
 </div>

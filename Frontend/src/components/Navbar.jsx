@@ -1,7 +1,12 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
-import Login from './Login';
+import { NavLink, useNavigate} from 'react-router-dom';
+import {User, ShoppingCart } from 'lucide-react';
+import { useAuthStore } from "../../store/authStore.js";
+import { AdminDashboard } from "./AdminDashboard.jsx";
+
+
+
+
 const Navbar = () => {
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark");
@@ -33,29 +38,38 @@ const element = document.documentElement;
       window.removeEventListener('scroll', handleScroll);
      }
     },[]);
+    const {isAuthenticated, user} = useAuthStore();
     const navItems =(
       <>
        <li>
-                <Link to='/'>Home</Link>
+                <NavLink to='/' style={({ isActive }) => ({color: isActive ? "text-slate-900" : "text-slate-700"})}>Home</NavLink>
               </li>
               <li>
-                <Link to='/course'>Course</Link>
+                <NavLink to='/course' style={({ isActive }) => ({color: isActive ? "text-slate-900" : "text-slate-700"})}>Course</NavLink>
               </li>
               <li>
-              <Link to='/contact'>Contact</Link>
+              <NavLink to='/contact' style={({ isActive }) => ({color: isActive ? "text-slate-900" : "text-slate-700"})}>Contact</NavLink>
               </li>
               <li>
-              <Link to='/about'>About</Link>
+              <NavLink to='/about' style={({ isActive }) => ({color: isActive ? "text-slate-900" : "text-slate-700"})}>About</NavLink>
               </li>
+
+              {isAuthenticated && user.role === "admin" && (
+                 <li>
+                 <NavLink to='/create-book' style={({ isActive }) => ({color: isActive ? "text-slate-900" : "text-slate-700"})}>Add Book</NavLink>
+                 </li>
+              )}
       </>
   );
+  const navigate = useNavigate();
+  
   return (
     <>
     
       <div className={`${sticky ? "z-50 sticky-navbar shadow-xl bg-slate-800 dark:bg-slate-100 duration-300 transition-all ease-in-out" : ""} bg-base-100 dark:bg-slate-400 dark:text-black max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 mb-20`}>
         <div className="navbar" >
           <div className="navbar-start">
-            <div className="dropdown">
+            <div className="dropdown bg-red-900">
               <div
                 tabIndex={0}
                 role="button"
@@ -78,7 +92,7 @@ const element = document.documentElement;
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 dark:bg-slate-500 dark:text-black rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100  bg-red-900 dark:bg-slate-900 dark:text-black rounded-box  mt-3 w-52 p-2 shadow"
               >
                {navItems}
               </ul>
@@ -128,13 +142,26 @@ const element = document.documentElement;
       d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
   </svg>
 </label>
-          <div>
-            <a className="py-1 px-3 rounded-md cursor-pointer border border-slate-400 opacity-70 dark:text-black dark:border-black" onClick={()=> document.getElementById("my_modal_3").showModal()}>Login</a>
+         
+         <div>
+          
+         {isAuthenticated ? (
+                <User  onClick={() => navigate('/dashboard')} style={{ cursor: 'pointer' }} />
+            ) : null}
           </div>
-          <Login/>
+
+          <div>
+          
+          {isAuthenticated ? (
+                 <ShoppingCart  onClick={() => navigate('/cart')} style={{ cursor: 'pointer' }} />
+             ) : null}
+           </div>
+
+        {isAuthenticated && user.role === 'admin' &&  <button onClick={() => navigate('/admin-dashboard')}>admin</button>}
         </div>
         </div>
       </div>
+     
     </>
   );
 };
